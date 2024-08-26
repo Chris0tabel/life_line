@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Head, Link } from '@inertiajs/react';
 
 const Donors = ({ donors = [], layoutType, meta = { links: [] } }) => { // Provide a default value for donors
-  const Layout = layoutType === 'guest' ? GuestLayout : AuthenticatedLayout;
+  const Layout = layoutType === 'user' ? GuestLayout : AuthenticatedLayout;
 
 
   return (
