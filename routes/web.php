@@ -14,9 +14,20 @@ Route::get('/', function () {
     ]);
 });
 
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/donor', function () {
+    return Inertia::render('Donors');
+})->name('Donors');
+
+Route::get('/Faq', function () {
+    return Inertia::render('Faq');
+})->name('Faq');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

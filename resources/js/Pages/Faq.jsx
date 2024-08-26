@@ -1,5 +1,9 @@
-import TestLayout from '@/Layouts/TestLayout';
+import ApplicationLogo from '@/Components/ApplicationLogo';
+import GuestLayout from '@/Layouts/GuestLayout';
 import React, { useState } from 'react';
+// import ApplicationLogo from '@/Components/ApplicationLogo';
+import { Link, Head } from '@inertiajs/react';
+
 
 const FAQItem = ({ question, children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +41,10 @@ const FAQItem = ({ question, children }) => {
   const Faq = () => {
     return (
        <>
-       <TestLayout>
-        <div className=''> <img src="/public/build/images/lifeline1.png" alt="9" />    </div>
+              <div className=''>
+                          <Link href="/">
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                </Link> </div>
          <div className=" mx-auto px-4 py-12 justify-center items-center max-w-2xl bg-white">
         <div className="text-center mb-8">
           <span className="inline-block bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm mb-4">
@@ -78,7 +84,7 @@ const FAQItem = ({ question, children }) => {
           </FAQItem>
         </div>
       </div>
-       </TestLayout>
+
 
        </>
 
