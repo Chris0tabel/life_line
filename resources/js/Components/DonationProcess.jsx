@@ -20,7 +20,7 @@ const BloodDropIcon = () => (
 
 const DonationProcess = () => {
   return (
-    <div className="bg-gray-50 p-8 flex flex-col md:flex-row px-6 py-12 justify-between">
+    <div className="bg-white p-8 flex flex-col md:flex-row px-6 py-12 justify-between">
       <div className=" ">
       <h1 className="text-4xl font-bold mb-4">The Blood Donation Process</h1>
         <p className="text-gray-600 mb-8">

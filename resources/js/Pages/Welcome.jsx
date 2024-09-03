@@ -5,6 +5,8 @@ import DonationProcess from '@/Components/DonationProcess';
 import lifeline1 from '/public/build/images/lifeline1.png';
 import NavLink from '@/Components/NavLink';
 import Dropdown from '@/Components/Dropdown';
+import illustration2 from '/public/build/images/illustration2.png';
+
 
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
@@ -18,10 +20,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
+            <div className="bg-white-50 text-black/50 dark:bg-black dark:text-white/50">
 
                 <div className=" selection:bg-[#FF2D20] selection:text-white">
-                    <nav className="items-center  flex flex-row justify-between">
+                    <nav className="items-center  border-b flex flex-row justify-between ">
 
                             <div className="flex lg:justify-center ">
                             <Link href="/">
@@ -31,8 +33,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
 
-                                <NavLink href="">
-                                    About
+                            <NavLink href={route('About')} active={route().current('About')}>
+                                   About
                                 </NavLink>
 
                                 <NavLink href={route('Donors')} active={route().current('Donors')}>
@@ -75,15 +77,15 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
 
 
-                        <main className="w-full items-center mx-auto">
-                        <section className="flex flex-row items-center justify-between w-full h-full">
+                        <main className="w-full items-center mx-auto md:flex-row ">
+                        <section className="flex flex-row items-center justify-between w-full h-full ">
                             <div className="text-left px-4 lg:px-20 mx-auto">
                                 <h1 id='line1'className="text-black text-4xl lg:text-5xl tracking-wider">Welcome to</h1>
                                 <h1 id='line2'className="text-black text-6xl lg:text-7xl my-4 lg:my-11">Lifeline</h1>
                                 <h2 id='line3'className="text-black text-2xl lg:text-3xl">Your blood counts!</h2>
                             </div>
-                            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 rounded bg-red-800  mx-auto">
-                                <img src={lifeline1} alt="Lifeline" className="w-full" />
+                            <div className="w-full h-full lg:w-1/2 rounded ">
+                                <img src={illustration2} alt="Lifeline" className=" " />
                             </div>
                         </section>
 

@@ -47,6 +47,7 @@ export default function Register() {
             <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
+                    <span className='px-6 text-red-600 text-sm'>Your full name</span>
 
                     <TextInput
                         id="name"
@@ -62,12 +63,13 @@ export default function Register() {
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
-                <div>
-                    <InputLabel htmlFor="d_o_b" value="d_o_b" />
+                <div className="mt-4">
+                    <InputLabel htmlFor="d_o_b" value="Date of Birth" />
 
                     <TextInput
                         id="d_o_b"
                         name="d_o_b"
+                        type="date"
                         value={data.d_o_b}
                         className="mt-1 block w-full"
                         autoComplete="d_o_b"
@@ -86,7 +88,7 @@ export default function Register() {
                         id="gender"
                         name="gender"
                         value={data.gender}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm "
                         onChange={(e) => setData('gender', e.target.value)}
                         required
                     >
@@ -152,14 +154,14 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 ">
                     <InputLabel htmlFor="blood_group" value="Blood Group" />
 
                     <select
                         id="blood_group"
                         name="blood_group"
                         value={data.blood_group}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm "
                         onChange={(e) => setData('blood_group', e.target.value)}
                         required
                     >
@@ -181,7 +183,7 @@ export default function Register() {
                         id="location"
                         name="location"
                         value={data.location}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm "
                         onChange={(e) => setData('location', e.target.value)}
                         required
                     >
@@ -204,7 +206,7 @@ export default function Register() {
                         id="visibility"
                         name="visibility"
                         value={data.visibility}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm "
                         onChange={(e) => setData('visibility', e.target.value)}
                         required
                     >
@@ -221,6 +223,7 @@ export default function Register() {
 
                 <div className="mt-4">
                     <InputLabel htmlFor="phone_number" value="Phone Number" />
+                    <span className='px-6 text-sm text-red-600'>Your Seven(7) Gambian digits</span>
 
                     <TextInput
                         id="phone_number"

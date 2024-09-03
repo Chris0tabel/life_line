@@ -3,6 +3,7 @@ import GuestLayout from '@/Layouts/GuestLayout';
 import React, { useState } from 'react';
 // import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link, Head } from '@inertiajs/react';
+import DonorLayout from '@/Layouts/DonorLayout';
 
 
 const FAQItem = ({ question, children }) => {
@@ -41,11 +42,14 @@ const FAQItem = ({ question, children }) => {
   const Faq = () => {
     return (
        <>
-              <div className=''>
+
+
+        <DonorLayout>
+        <div className='bg-white py-2 px-4'>
                           <Link href="/">
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link> </div>
-         <div className=" mx-auto px-4 py-12 justify-center items-center max-w-2xl bg-white">
+        <div className=" mx-auto px-4 py-12 justify-center items-center max-w-2xl bg-white">
         <div className="text-center mb-8">
           <span className="inline-block bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm mb-4">
             FAQ
@@ -74,17 +78,17 @@ const FAQItem = ({ question, children }) => {
             <p>Donating blood can save lives and improve the health of recipients. Additionally, it offers health benefits for donors, such as reducing the risk of heart disease and improving overall cardiovascular health.</p>
           </FAQItem>
           <FAQItem question="How often can I donate blood?">
-            <p>Content for how often one can donate blood...</p>
+            <p>After every three months for males epecially</p>
           </FAQItem>
           <FAQItem question="Is donating blood safe?">
-            <p>Content for safety of blood donation...</p>
+            <p>Yes.</p>
           </FAQItem>
           <FAQItem question="What can I expect during the donation process?">
             <p>Content for what to expect during donation...</p>
           </FAQItem>
         </div>
       </div>
-
+        </DonorLayout>
 
        </>
 

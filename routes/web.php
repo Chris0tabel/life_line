@@ -23,6 +23,10 @@ Route::get('/donor', function () {
     return Inertia::render('Donors');
 })->name('Donors');
 
+Route::get('/About', function () {
+    return Inertia::render('About');
+})->name('About');
+
 Route::get('/Faq', function () {
     return Inertia::render('Faq');
 })->name('Faq');
