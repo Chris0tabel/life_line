@@ -1,15 +1,37 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Pagination from "@/Components/Pagination";
 import GuestLayout from '@/Layouts/GuestLayout';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Head, Link } from '@inertiajs/react';
 import DonorLayout from '@/Layouts/DonorLayout';
 
 
-const Donors = ({ users = [], layoutType, meta = { links: [] } }) => { // Provide a default value for users
+
+const Public = ({ users = [], meta = { current_page: 1, total_pages: 1 } }) => {
+    const [currentPage, setCurrentPage] = useState(meta.current_page);
+    const [usersData, setUsersData] = useState(users);
+
+    useEffect(() => {
+        // Fetch new data when the page changes
+        const fetchData = async (page) => {
+            const response = await fetch(`${page}`);
+            const data = await response.json();
+            setUsersData(data.users);
+        };
+
+        fetchData(currentPage);
+    }, [currentPage]);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+
+    // Provide a default value for users
 //   const Layout = layoutType === 'user' ? GuestLayout : AuthenticatedLayout;
 
 console.log(users);
+console.log(meta);
 
   return (
     <>
@@ -56,7 +78,11 @@ console.log(users);
                 </tbody>
               </table>
 
-              <Pagination  />
+              <Pagination
+                   currentPage={currentPage}
+                            totalPages={meta.total_pages}
+                            onPageChange={handlePageChange}
+               />
             </div>
           </div>
         </div>
@@ -66,4 +92,4 @@ console.log(users);
   );
 };
 
-export default Donors;
+export default Public;

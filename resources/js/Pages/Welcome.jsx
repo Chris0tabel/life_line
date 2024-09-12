@@ -37,7 +37,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                    About
                                 </NavLink>
 
-                                <NavLink href={route('Donors')} active={route().current('Donors')}>
+                                <NavLink href={route('profile.public')} active={route().current('profile.public')}>
                                     Donor
                                 </NavLink>
                                 <NavLink href={route('Faq')} active={route().current('Faq')}>

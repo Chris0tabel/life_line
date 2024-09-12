@@ -5,8 +5,13 @@ import Cayor_logo from '/public/build/images/Cayor_Logo.jpg';
 const About = () => {
   return (
     <>
-     <div className='justify-center items-center'>
-     <img alt="" src={ApplicationLogo}/>
+
+        <div className='flex flex-col items-center py-6'>
+        {/* <div className=" ">
+                            <Link href="/">
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                </Link>
+                            </div> */}
      <h1>LifeLine</h1>
       <p class="version">Version 2.0.0  </p>
       <p>Services Provided: by</p>
@@ -16,7 +21,9 @@ const About = () => {
       <p class="link"><a href="https://cayorenterprises.com">www.cayorenterprises.com</a> | +220 7222967</p>
 
      </div>
+
     </>
+
 
   )
 }

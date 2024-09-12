@@ -6,10 +6,20 @@ import { Head, Link } from '@inertiajs/react';
 import DonorLayout from '@/Layouts/DonorLayout';
 
 
-const Donors = ({ users = [], layoutType, meta = { links: [] } }) => { // Provide a default value for users
+const Private = ({ users = [], layoutType, meta = { links: [], current_page: 1, last_page: 1 } }) => {
+    const [currentPage, setCurrentPage] = useState(meta.current_page);
+
+    const handlePageChange = (page) => {
+        // Update currentPage state
+        setCurrentPage(page);
+        // Fetch data for the new page or update your API call logic
+    };
+
+    // Provide a default value for users
 //   const Layout = layoutType === 'user' ? GuestLayout : AuthenticatedLayout;
 
 console.log(users);
+console.log(meta);
 
   return (
     <>
@@ -56,7 +66,11 @@ console.log(users);
                 </tbody>
               </table>
 
-              <Pagination  />
+              <Pagination
+                 currentPage={currentPage}
+                   totalPages={meta.last_page}
+                  onPageChange={handlePageChange}
+               />
             </div>
           </div>
         </div>
@@ -66,4 +80,4 @@ console.log(users);
   );
 };
 
-export default Donors;
+export default Public;

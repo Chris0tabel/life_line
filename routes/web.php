@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,9 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/donor', function () {
-    return Inertia::render('Donors');
-})->name('Donors');
+Route::get('/donors/public', [ProfileController::class, 'public'])->name('profile.public');
+Route::get('/donors/private', [ProfileController::class, 'public'])->name('profile.private');
+
 
 Route::get('/About', function () {
     return Inertia::render('About');
@@ -30,8 +31,6 @@ Route::get('/About', function () {
 Route::get('/Faq', function () {
     return Inertia::render('Faq');
 })->name('Faq');
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

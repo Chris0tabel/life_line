@@ -18,22 +18,33 @@ class ProfileController extends Controller
      * Display the user's profile form.
      *
      */
-    public function index()
+    public function public()
     {
-        // Fetch all users
-        $users = User::all();
-        // Return view or inertia component with users data
-        return inertia('Donors', ['users' => $users]);
-
-
-                {
-                    $users = User::paginate(10); // Fetch users with pagination
-                    return inertia('Donors', ['users' => $users->items(), 'meta' => $users->toArray()]);
-                }
-
+        // Fetch users with pagination
+        $users = User::paginate(10);
+        $paginationMeta = [
+            'current_page' => $users->currentPage(),
+            'total_pages' => $users->lastPage(),
+            'total_items' => $users->total()
+        ];
+        // Return the Inertia component with users data and pagination meta
+        return Inertia::render('Profile/Public', [
+            'users' => $users->items(),
+            'meta' => $paginationMeta
+        ]);
     }
 
+    public function private()
+    {
+        // Fetch users with pagination
+        $users = User::paginate(10);
 
+        // Return the Inertia component with users data and pagination meta
+        return Inertia::render('Profile/Private', [
+            'users' => $users->items(),
+            'meta' => $users->toArray()
+        ]);
+    }
 
     public function edit(Request $request): Response
     {
